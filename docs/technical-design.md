@@ -169,3 +169,29 @@ main.py
         start game
 
         run program_kill()
+
+## game state 
+
+## processess
+
+the game is checking for these events while running 
+
+- player health
+
+- player possition for winning game and for which chunk of the map / enemies are loaded
+
+- enemy health
+
+- win or lose condition
+
+- keys pressed for player movement/attack or for pausing game
+
+- game tick clock
+
+- wether player has been hit by enemy 
+
+- if X has been clicked to close game
+
+- if game is paused or on win/lose/start screens
+
+- drawing frames
