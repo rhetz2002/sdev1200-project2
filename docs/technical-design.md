@@ -179,30 +179,30 @@ main.py
 
         run program_kill()
 </code>
-## game state
-
-curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.
-
-## processess
-
-the game is checking for these events while running 
-
-- player health
-
-- player possition for winning game and for which chunk of the map / enemies are loaded
-
-- enemy health
-
-- win or lose condition
-
-- keys pressed for player movement/attack or for pausing game
-
-- game tick clock
-
-- wether player has been hit by enemy 
-
-- if X has been clicked to close game
-
-- if game is paused or on win/lose/start screens
-
-- drawing frames
+## game state                    
+                             
+curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.                  
+                  
+## processess                     
+                 
+the game is checking for these events while running                        
+                     
+- player health                  
+                                                                                           
+- player possition for winning game and for which chunk of the map / enemies are loaded                  
+                   
+- enemy health            
+                         
+- win or lose condition            
+                                                                
+- keys pressed for player movement/attack or for pausing game                     
+                     
+- game tick clock           
+                                           
+- wether player has been hit by enemy                     
+                                       
+- if X has been clicked to close game               
+                                                     
+- if game is paused or on win/lose/start screens              
+                    
+- drawing frames                 
