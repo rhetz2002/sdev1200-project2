@@ -1,123 +1,123 @@
-## File Structure
+## File Structure      
+        
+overall folder structure      
+            
+sdev1200-project2             
+├── game/                          
+│     ├── main.py              
+│     ├── ui.py                 
+│     ├── render.py               
+│     ├── player.py                 
+│     ├── enemies.py                 
+│     ├── algorithm.py                   
+│     ├── secondary_functions.py               
+│     └── sprites/                
+├── docs/                   
+└── README.md                      
+                        
+## classes                      
+                       
+- player                    
+hp (int)                           
+position (x, y)                              
+chunk (x, y) (map will be orginized into rooms/chunks that the player will have to traverse this stores which room/chunk the player is in)                
+sprite(file)                     
+size (int, int)                    
+player_move (method)                  
+pleyer_attack (method)                      
+                             
+- enemy_mage                   
+move (method)                       
+attack (method)                   
+hp (int)                     
+sprite (file)                          
+size (int, int)               
+                                
+- enemy_mele                    
+move (method)                        
+attack (method)                       
+hp (int)                      
+sprite (file)                  
+size (int, int)                       
 
-overall folder structure
-
-sdev1200-project2
-game/
-├── main.py
-│     ├── ui.py
-│     ├── render.py
-│     ├── player.py
-│     ├── enemies.py
-│     ├── algorithm.py
-│     ├── secondary_functions.py
-│     └── sprites/  
-├── docs/
-└── README.md  
-
-## classes
-
-- player
-hp (int)
-position (x, y)
-chunk (x, y) (map will be orginized into rooms/chunks that the player will have to traverse this stores which room/chunk the player is in)
-sprite(file)
-size (int, int)
-player_move (method)
-pleyer_attack (method)
-
-- enemy_mage
-move (method)
-attack (method)
-hp (int)
-sprite (file)
-size (int, int)
-
-- enemy_mele
-move (method)
-attack (method)
-hp (int)
-sprite (file)
-size (int, int)
-
-
-## sudocode
-
-_-___________________-_
-player.py
-
-player_move()
-
-moves plyer if key is pressed
-
-player attack()
-
-player attacks if key is pressed()
-
-_-___________________-_
-render.py
-
-render functionality
-
-import sprite classes
-
-(still figuring this out a bit but 
-i feel it may be cleaner if i handel 
-it in a seperate file)
-
-_-___________________-_
-enemies.py
-
-stores data and funtions 
-pertaining to enemies
-
-import pathfind funtion
-
-move()
-
-uses pathfind funtion to move enemies and updates
-
-mage_attack()
-chooses a num between 1-30
-if num 1 then attack
-
-mele attack() 
-if touching player attack
-
-enemy_health_check()
-iterates through valid 
-onscreen enemy health
-
-if enemy healh =< 0 enemy 
-is dead and unloaded
-_-___________________-_
-
-algorithm.py
-
-pathfind_algorithm()
-
-stores pathfinding algoritm and when called is executed
-
-_-____________________-_
-
-secondary_functions.py
-
-setup()
-
-sets up/resets settings to start 
-sate including health score player pos
-
-pause()
-
-pauses game
-
-program_kill()
-
-closes program if condition is valid
-_-____________________-_
-
+## sudocode                          
+                              
+_-___________________-_                      
+player.py                   
+                       
+player_move()                           
+                                      
+moves plyer if key is pressed                           
+                              
+player attack()                              
+                                      
+player attacks if key is pressed()                             
+                            
+_-___________________-_              
+render.py                        
+                        
+render functionality                          
+                            
+import sprite classes                       
+                                             
+(still figuring this out a bit but                 
+i feel it may be cleaner if i handel                
+it in a seperate file)                
+                          
+_-___________________-_                      
+enemies.py             
+                            
+stores data and funtions                     
+pertaining to enemies               
+                                  
+import pathfind funtion                           
+                          
+move()                    
+                                                   
+uses pathfind funtion to move enemies and updates                            
+                          
+mage_attack()                       
+chooses a num between 1-30                 
+if num 1 then attack                       
+                        
+mele attack()                  
+if touching player attack                        
+                               
+enemy_health_check()                      
+iterates through valid                        
+onscreen enemy health                                      
+                                   
+if enemy healh =< 0 enemy                                  
+is dead and unloaded                                        
+_-___________________-_                               
+                          
+algorithm.py                                    
+                               
+pathfind_algorithm()                       
+                                                                   
+stores pathfinding algoritm and when called is executed                      
+                              
+_-____________________-_                                     
+                              
+secondary_functions.py                            
+                      
+setup()                                
+                                      
+sets up/resets settings to start                     
+sate including health score player pos                  
+                                   
+pause()                
+                 
+pauses game               
+                   
+program_kill()               
+                                         
+closes program if condition is valid              
+_-____________________-_                 
+             
 main.py
 
+<code>
 (load secondary files)
 
 (load sprites)
@@ -178,7 +178,7 @@ main.py
         start game
 
         run program_kill()
-
+</code>
 ## game state
 
 curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.
