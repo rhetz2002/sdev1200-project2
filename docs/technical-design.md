@@ -20,11 +20,11 @@ sdev1200-project2
 - player                    
 hp (int)                           
 position (x, y)                              
-chunk (x, y) (map will be orginized into rooms/chunks that the player will have to traverse this stores which room/chunk the player is in)                
+chunk (x, y) (map will be organized into rooms/chunks that the player will have to traverse, this stores which room/chunk the player is in)                
 sprite(file)                     
 size (int, int)                    
 player_move (method)                  
-pleyer_attack (method)                      
+player_attack (method)                      
                              
 - enemy_mage                   
 move (method)                       
@@ -40,7 +40,7 @@ hp (int)
 sprite (file)                  
 size (int, int)                       
 
-## sudocode                          
+## pseudocode                          
                               
 _-___________________-_                      
 player.py                   
@@ -51,7 +51,7 @@ moves plyer if key is pressed
                               
 player attack()                              
                                       
-player attacks if key is pressed()                             
+player attacks if key is pressed                           
                             
 _-___________________-_              
 render.py                        
@@ -60,21 +60,21 @@ render functionality
                             
 import sprite classes                       
                                              
-(still figuring this out a bit but                 
-i feel it may be cleaner if i handel                
-it in a seperate file)                
+(still figuring this out a bit                          
+but I feel it may be cleaner if                          
+I handle it in a separate file)                         
                           
 _-___________________-_                      
 enemies.py             
                             
-stores data and funtions                     
+stores data and functions                     
 pertaining to enemies               
                                   
-import pathfind funtion                           
+import pathfind function                            
                           
 move()                    
                                                    
-uses pathfind funtion to move enemies and updates                            
+uses pathfind function to move enemies and updates                            
                           
 mage_attack()                       
 chooses a num between 1-30                 
@@ -87,7 +87,7 @@ enemy_health_check()
 iterates through valid                        
 onscreen enemy health                                      
                                    
-if enemy healh =< 0 enemy                                  
+if enemy health =< 0 enemy                                  
 is dead and unloaded                                        
 _-___________________-_                               
                           
@@ -95,7 +95,7 @@ algorithm.py
                                
 pathfind_algorithm()                       
                                                                    
-stores pathfinding algoritm and when called is executed                      
+stores pathfinding algorithm and when called is executed                      
                               
 _-____________________-_                                     
                               
@@ -132,7 +132,7 @@ main.py
 
     while game start
     
-    (initalize tick clock)
+    (initialize tick clock)
     
     run setup()
 
@@ -144,15 +144,15 @@ main.py
                 
                 if in finish X Y range proceed to win screen
 
-                else check for enemies in valid xy range and load enemies
+                else check for enemies in valid x y range and load enemies
 
-                unload offscreen enemie sprites 
+                unload offscreen enemy sprites 
 
                 run player_move()
 
                 run player_attack()
 
-            check loded enemies position
+            check loaded enemies position
 
             run move()
 
@@ -160,7 +160,7 @@ main.py
 
             run mele_attack()
 
-            run enemie_health_check()
+            run enemy_health_check()
 
             run program_kill()
     while won
@@ -181,15 +181,15 @@ main.py
 ```
 ## game state                    
                              
-curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.                  
+currently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certain random events. the main loop is initalised when player clicks start and ends when player wins/looses.                  
                   
-## processess                     
+## processes                      
                  
 the game is checking for these events while running                        
                      
 - player health                  
                                                                                            
-- player possition for winning game and for which chunk of the map / enemies are loaded                  
+- player position for winning game and for which chunk of the map / enemies are loaded                  
                    
 - enemy health            
                          
@@ -199,7 +199,7 @@ the game is checking for these events while running
                      
 - game tick clock           
                                            
-- wether player has been hit by enemy                     
+- whether player has been hit by enemy                     
                                        
 - if X has been clicked to close game               
                                                      
