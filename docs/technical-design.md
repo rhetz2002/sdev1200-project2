@@ -117,7 +117,7 @@ _-____________________-_
              
 main.py
 
-<code>
+```
 (load secondary files)
 
 (load sprites)
@@ -178,7 +178,7 @@ main.py
         start game
 
         run program_kill()
-</code>
+```
 ## game state                    
                              
 curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.                  
