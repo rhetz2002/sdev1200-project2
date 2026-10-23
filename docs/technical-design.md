@@ -170,7 +170,9 @@ main.py
 
         run program_kill()
 
-## game state 
+## game state
+
+curently game state lives in main loop in main.py which i think is the cleanest solution for this it is checking for player position, health, and input as well as game tick for certan random events. the main loop is initalised when player clicks start and ends when player wins/looses.
 
 ## processess
 
