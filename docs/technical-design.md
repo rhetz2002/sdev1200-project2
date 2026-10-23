@@ -27,10 +27,19 @@ player_move (method)
 pleyer_attack (method)
 
 - enemy_mage
-move(method)
+move (method)
+attack (method)
+hp (int)
+sprite (file)
+size (int, int)
 
 - enemy_mele
-move method
+move (method)
+attack (method)
+hp (int)
+sprite (file)
+size (int, int)
+
 
 ## sudocode
 
