@@ -58,6 +58,9 @@ def game_render(sprites, screen):
 
     screen.fill((255, 255, 255))
 
+    
+    
+    
     pygame.display.flip()
 
 

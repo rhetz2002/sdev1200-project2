@@ -37,19 +37,19 @@ while running:
         for event in pygame.event.get():
                   
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print('mouse down')                
+                           
                 if event.button == 1:
-                    print('mouse')
+                    
                     mouseX, mouseY = event.pos
                 
                     if 840 >= mouseX >= 540 and 780 >= mouseY >= 670:
-
-                        print("HITBOX DETECTED!")
                         
                         menu = False
                                 
                         game = True
 
+            # if player clicks on X quit game
+            
             if event.type == QUIT:
                 
                         pygame.quit()
@@ -58,12 +58,6 @@ while running:
         # show main menu
 
         main_menu_render(sprites, screen)
-
-        # if player clicks on X quit game
-
-        #running = program_kill()
-
-        
 
     while game is True:
 
