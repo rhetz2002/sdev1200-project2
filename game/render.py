@@ -33,9 +33,6 @@ def sprite_initalise(sprite_list_single, sprite_list_group):
 
         sprites[f'{name}_sprite'].add(sprites[f'{name}1'])
 
-        print (f'single{str(name)}')
-
-
     return sprites
 
     #for item in sprite_list_group:
@@ -55,7 +52,15 @@ def main_menu_render(sprites, screen):
     sprites['screen_start_sprite'].draw(screen) 
         
     pygame.display.flip() 
-    #game render
+
+
+def game_render(sprites, screen):
+
+    screen.fill((255, 255, 255))
+
+    pygame.display.flip()
+
+
 
     #win or loose render
 

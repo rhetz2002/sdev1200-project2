@@ -1,10 +1,16 @@
 import pygame
+
+from pygame.locals import (
+    QUIT
+)
+
 import sys
 
 from secondary_functions import program_kill
 from render import display_setup
 from render import sprite_initalise
 from render import main_menu_render
+from render import game_render
 
 from render import screen_start
 
@@ -18,6 +24,7 @@ sprite_list_group1 = [ "enemy_mage", "enviroment_wall", "enemy_mele", "enviromen
 
 running = True
 menu = True
+game = False
 
 screen = display_setup()
 
@@ -27,12 +34,39 @@ while running:
 
     while menu is True:
 
+        for event in pygame.event.get():
+                  
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                print('mouse down')                
+                if event.button == 1:
+                    print('mouse')
+                    mouseX, mouseY = event.pos
+                
+                    if 840 >= mouseX >= 540 and 780 >= mouseY >= 670:
+
+                        print("HITBOX DETECTED!")
+                        
+                        menu = False
+                                
+                        game = True
+
+            if event.type == QUIT:
+                
+                        pygame.quit()
+                        sys.exit()
+
         # show main menu
 
         main_menu_render(sprites, screen)
 
         # if player clicks on X quit game
 
-        running = program_kill()
+        #running = program_kill()
 
-    
+        
+
+    while game is True:
+
+        game_render(sprites, screen)        
+
+        running = program_kill()
