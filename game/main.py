@@ -6,17 +6,21 @@ from pygame.locals import (
 
 import sys
 
-from secondary_functions import program_kill
+#from secondary_functions import program_kill
 from render import display_setup
 from render import sprite_initalise
 from render import main_menu_render
 from render import game_render
 
 from render import screen_start
+from player import player
+from enemies import pathfindtest
 
-sprite_list_single = [screen_start]
+#from maze import maze_map
 
-sprite_list_single1 = [ "player_attack_up_face", "player_idel_up_face", "player_attack_down_face",
+sprite_list_single = [screen_start, player]
+
+sprite_list_single1 = [ player, "player_idel_up_face", "player_attack_down_face",
 "player_idel_down_face", screen_start, "enviroment_floor_goal", "player_attack_left_face", 
 "player_idel_left_face", "player_attack_right_face", "player_idel_right_face"]
 
@@ -25,6 +29,7 @@ sprite_list_group1 = [ "enemy_mage", "enviroment_wall", "enemy_mele", "enviromen
 running = True
 menu = True
 game = False
+move_tick = 0
 
 screen = display_setup()
 
@@ -52,8 +57,8 @@ while running:
             
             if event.type == QUIT:
                 
-                        pygame.quit()
-                        sys.exit()
+                pygame.quit()
+                sys.exit()
 
         # show main menu
 
@@ -61,6 +66,15 @@ while running:
 
     while game is True:
 
-        game_render(sprites, screen)        
+        game_render(sprites, screen)       
 
-        running = program_kill()
+        move_tick = sprites['player1'].player_con(move_tick)
+
+        pathfindtest(sprites['player1'].row, sprites['player1'].collum)
+
+        for event in pygame.event.get():
+            
+            if event.type == QUIT:
+                
+                pygame.quit()
+                sys.exit() 

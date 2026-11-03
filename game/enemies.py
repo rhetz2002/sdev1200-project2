@@ -62,3 +62,7 @@ class mele(pygame.sprite.Sprite):
 
             self.kill()
 
+def pathfindtest ()
+
+    alcorithnm
+

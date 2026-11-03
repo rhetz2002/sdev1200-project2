@@ -1,5 +1,7 @@
 import pygame
 
+
+
 class screen_start(pygame.sprite.Sprite):
     def __init__(self):
         
@@ -53,14 +55,14 @@ def main_menu_render(sprites, screen):
         
     pygame.display.flip() 
 
+# maze, player_chunk
 
 def game_render(sprites, screen):
 
     screen.fill((255, 255, 255))
 
-    
-    
-    
+    sprites['player_sprite'].draw(screen)
+
     pygame.display.flip()
 
 

@@ -1,0 +1,163 @@
+import pygame
+import sys
+from pygame.locals import (
+    K_w,
+    K_s,
+    K_a,
+    K_d,
+    K_LSHIFT,
+)
+from maze import maze_map
+
+
+class player(pygame.sprite.Sprite):
+
+    #def __init__(self, lives, health, x, y, image):
+    def __init__(self):
+
+        super().__init__()
+
+        def load(name):
+
+            img = pygame.image.load(f'sprites/{name}.png').convert_alpha()
+            return pygame.transform.scale(img, (100, 100))
+
+        self.img_up = load('player_idel_up_face')
+        self.img_down = load('player_idel_down_face')
+        self.img_left = load('player_idel_left_face')
+        self.img_right = load('player_idel_right_face')
+
+        self.atk_up = load('player_attack_up_face')
+        self.atk_down = load('player_attack_down_face')
+        self.atk_left = load('player_attack_left_face')
+        self.atk_right = load('player_attack_right_face')
+
+        self.image = self.img_down
+
+        self.offsetX = 0
+
+        self.offsetY = 0
+
+        self.chunkX = 0
+        
+        self.chunkY = 1
+
+        self.collum = 5
+
+        self.row = 4
+
+        self.rect = self.image.get_rect()
+
+        self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
+        
+        self.hp = 20
+
+        self.direction = 0
+    
+    def player_con(self, move_tick):
+
+        pressed = pygame.key.get_pressed()
+
+        if pressed[K_w] and self.rect.y >= 2:
+            
+            self.image = self.img_up
+
+            if move_tick >= 150:
+                
+                self.collum -= 1
+                
+                move_tick = 0
+
+                self.direction = 1
+
+            else:
+
+                move_tick += 1
+
+        if pressed[K_s] and self.rect.y <= 804:
+            
+            self.image = self.img_down
+
+            if move_tick >= 150:
+
+                self.collum += 1
+
+                move_tick = 0
+
+                self.direction = 0
+
+            else:
+
+                move_tick += 1
+
+        if pressed[K_a] and self.rect.x >= -0:
+            
+            self.image = self.img_left
+
+            if move_tick >= 150:    
+                
+                self.row -= 1
+
+                move_tick = 0
+
+                self.direction = 2                
+
+            else:
+
+                move_tick += 1
+
+        if pressed[K_d] and self.rect.x <= 1305:
+            
+            self.image = self.img_right
+
+            if move_tick >= 150:
+                
+                self.row += 1
+
+                move_tick = 0
+
+                self.direction = 3
+
+            else:
+
+                move_tick += 1
+
+        if pressed[K_LSHIFT] and self.direction == 0:
+
+            self.image = self.atk_down
+
+        if pressed[K_LSHIFT] and self.direction == 1:
+
+            self.image = self.atk_up
+
+        if pressed[K_LSHIFT] and self.direction == 2:
+
+            self.image = self.atk_left
+
+        if pressed[K_LSHIFT] and self.direction == 3:
+
+            self.image = self.atk_right
+
+        
+
+
+        self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
+        return move_tick
+
+    #def player_fire(self):
+
+     #   bullet = player_bullet()
+
+      #  bullet.fire(self.rect.x, self.rect.y)
+
+      #  return bullet
+
+    #def damage(self):
+
+    #    self.hp -= 1
+
+     #   if self.hp <= 0:
+
+     #       gameover = True
+
+      #      return gameover
