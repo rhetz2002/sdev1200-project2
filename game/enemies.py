@@ -1,3 +1,5 @@
+import pygame
+
 class mage(pygame.sprite.Sprite):
 
     def __init__(self):
@@ -62,7 +64,7 @@ class mele(pygame.sprite.Sprite):
 
             self.kill()
 
-def pathfindtest ()
+#def pathfindtest ()
 
-    alcorithnm
+#    alcorithnm
 

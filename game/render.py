@@ -1,4 +1,5 @@
 import pygame
+from maze import wall_block
 
 
 
@@ -35,17 +36,17 @@ def sprite_initalise(sprite_list_single, sprite_list_group):
 
         sprites[f'{name}_sprite'].add(sprites[f'{name}1'])
 
+    for item in sprite_list_group:
+
+        name = item.__name__
+    
+        sprites[f'{name}1'] = item()
+    
+        sprites[f'{name}_sprite'] = pygame.sprite.Group()
+    
+        sprites[f'{name}_sprite'].add(sprites[f'{name}1'])
+
     return sprites
-
-    #for item in sprite_list_group:
-    
-    #    sprites[f'{item}1'] = sprite_list_group[item]()
-    
-    #    sprites[f'{item}_sprite'] = pygame.sprite.GroupSingle()
-    
-    #    sprites[f'{item}_sprite'].add(sprites[f'{item}1'])
-
-    #    print (f'group{item}')    
 
     #begening render
 
@@ -57,11 +58,13 @@ def main_menu_render(sprites, screen):
 
 # maze, player_chunk
 
-def game_render(sprites, screen):
+def game_render(sprites, screen, x, y):
 
     screen.fill((255, 255, 255))
 
     sprites['player_sprite'].draw(screen)
+
+    sprites['wall_block1'].maze_draw(screen, x, y, sprites)
 
     pygame.display.flip()
 
