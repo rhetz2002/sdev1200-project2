@@ -67,10 +67,11 @@ while running:
         main_menu_render(sprites, screen)
 
     while game is True:
+        move_tick, chunkX, chunkY = sprites['player1'].player_con(move_tick)
 
-        game_render(sprites, screen, sprites['player1'].chunkY, sprites['player1'].chunkX)       
+        game_render(sprites, screen, chunkY, chunkX)       
 
-        move_tick = sprites['player1'].player_con(move_tick)
+        print(chunkX, chunkY)
 
         #pathfindtest(sprites['player1'].row, sprites['player1'].collum)
 
@@ -80,3 +81,5 @@ while running:
                 
                 pygame.quit()
                 sys.exit() 
+
+        

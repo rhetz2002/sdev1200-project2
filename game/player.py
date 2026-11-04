@@ -40,7 +40,7 @@ class player(pygame.sprite.Sprite):
 
         self.chunkX = 0
         
-        self.chunkY = 1
+        self.chunkY = 0
 
         self.collum = 5
 
@@ -62,7 +62,7 @@ class player(pygame.sprite.Sprite):
             
             self.image = self.img_up
 
-            if maze_map[self.chunkX][self.chunkY][self.collum - 1][self.row] == 0:
+            if self.collum >= 0:
 
                 if move_tick >= 150:
                 
@@ -75,12 +75,18 @@ class player(pygame.sprite.Sprite):
                 else:
 
                     move_tick += 1
+            
+            elif self.collum <= 0:
+
+                self.collum = 8 
+
+                self.chunkX -= 1        
 
         if pressed[K_s]:
             
             self.image = self.img_down
 
-            if maze_map[self.chunkX][self.chunkY][self.collum + 1][self.row] == 0:
+            if self.collum <= 8:
 
                 if move_tick >= 150:
 
@@ -89,16 +95,22 @@ class player(pygame.sprite.Sprite):
                     move_tick = 0
 
                     self.direction = 0
-
+                    
                 else:
 
                     move_tick += 1
+            
+            elif self.collum >= 8:
+
+                self.collum = 0 
+
+                self.chunkX += 1
 
         if pressed[K_a]:
             
             self.image = self.img_left
 
-            if maze_map[self.chunkX][self.chunkY][self.collum][self.row - 1] == 0:
+            if self.row >= 0:
 
                 if move_tick >= 150:    
                 
@@ -106,17 +118,24 @@ class player(pygame.sprite.Sprite):
 
                     move_tick = 0
 
-                    self.direction = 2                
+                    self.direction = 2             
 
                 else:
 
                     move_tick += 1
 
+            elif self.row <= 0:
+
+                self.row = 13 
+
+                self.chunkY -= 1       
+
+
         if pressed[K_d]:
             
             self.image = self.img_right
 
-            if maze_map[self.chunkX][self.chunkY][self.collum][self.row + 1] == 0:
+            if self.row <= 13:
 
                 if move_tick >= 150:
                 
@@ -125,10 +144,16 @@ class player(pygame.sprite.Sprite):
                     move_tick = 0
 
                     self.direction = 3
-
+                
                 else:
 
                     move_tick += 1
+
+            elif self.row >= 13:
+
+                self.row = 0 
+
+                self.chunkY += 1
 
         if pressed[K_LSHIFT] and self.direction == 0:
 
@@ -148,9 +173,11 @@ class player(pygame.sprite.Sprite):
 
         
 
+        
+
 
         self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
-        return move_tick
+        return move_tick, self.chunkX, self.chunkY
 
     #def damage(self):
 
