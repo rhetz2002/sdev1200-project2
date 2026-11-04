@@ -96,13 +96,11 @@ class wall_block (pygame.sprite.Sprite):
 
     def maze_draw (self, screen, playerX, playerY, sprites):
 
-        #self.rect.topleft = (self.row * 100, self.collum * 100)
+        room = maze_map[playerY][playerX]             
 
-        room = maze_map[playerY][playerX]               # lock onto the first two layers
+        for x, row in enumerate(room):              
 
-        for x, row in enumerate(room):               # the whole row, e.g. [1,0,0,0,...,1]
-
-            for y, tile in enumerate(row):  # j = index inside that row -> maze_map[a][b][i][j]
+            for y, tile in enumerate(row): 
                 
                 if tile == 1: 
                 
