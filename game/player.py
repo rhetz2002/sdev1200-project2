@@ -62,9 +62,9 @@ class player(pygame.sprite.Sprite):
             
             self.image = self.img_up
 
-            if self.collum >= 0:
+            if self.collum >= 0.5:
 
-                if move_tick >= 150:
+                if move_tick >= 150 and maze_map[self.chunkX][self.chunkY][self.collum -1][self.row]  != 1:
                 
                     self.collum -= 1
                 
@@ -76,19 +76,25 @@ class player(pygame.sprite.Sprite):
 
                     move_tick += 1
             
-            elif self.collum <= 0:
+            elif self.collum == 0:
 
-                self.collum = 8 
+                if move_tick >= 150:
 
-                self.chunkX -= 1        
+                    self.collum = 8 
+
+                    self.chunkX -= 1        
+
+                else:
+
+                    move_tick += 1
 
         if pressed[K_s]:
             
             self.image = self.img_down
 
-            if self.collum <= 8:
+            if self.collum <= 7.5:
 
-                if move_tick >= 150:
+                if move_tick >= 150 and maze_map[self.chunkX][self.chunkY][self.collum +1][self.row]  != 1:
 
                     self.collum += 1
 
@@ -100,19 +106,25 @@ class player(pygame.sprite.Sprite):
 
                     move_tick += 1
             
-            elif self.collum >= 8:
+            elif self.collum == 8:
+                
+                if move_tick >= 150:
+                    
+                    self.collum = 0 
 
-                self.collum = 0 
+                    self.chunkX += 1
 
-                self.chunkX += 1
+                else:
+
+                    move_tick += 1
 
         if pressed[K_a]:
             
             self.image = self.img_left
 
-            if self.row >= 0:
+            if self.row >= 0.5:
 
-                if move_tick >= 150:    
+                if move_tick >= 150 and maze_map[self.chunkX][self.chunkY][self.collum][self.row - 1]  != 1:    
                 
                     self.row -= 1
 
@@ -124,20 +136,26 @@ class player(pygame.sprite.Sprite):
 
                     move_tick += 1
 
-            elif self.row <= 0:
+            elif self.row == 0:
+                
+                if move_tick >= 150:
 
-                self.row = 13 
+                    self.row = 13 
 
-                self.chunkY -= 1       
+                    self.chunkY -= 1
+
+                else:
+
+                    move_tick += 1       
 
 
         if pressed[K_d]:
             
             self.image = self.img_right
 
-            if self.row <= 13:
+            if self.row <= 12.5:
 
-                if move_tick >= 150:
+                if move_tick >= 150 and maze_map[self.chunkX][self.chunkY][self.collum][self.row + 1]  != 1:
                 
                     self.row += 1
 
@@ -149,11 +167,17 @@ class player(pygame.sprite.Sprite):
 
                     move_tick += 1
 
-            elif self.row >= 13:
+            elif self.row == 13:
 
-                self.row = 0 
+                if move_tick >= 150:
 
-                self.chunkY += 1
+                    self.row = 0 
+
+                    self.chunkY += 1
+
+                else:
+
+                    move_tick += 1
 
         if pressed[K_LSHIFT] and self.direction == 0:
 
@@ -170,11 +194,6 @@ class player(pygame.sprite.Sprite):
         if pressed[K_LSHIFT] and self.direction == 3:
 
             self.image = self.atk_right
-
-        
-
-        
-
 
         self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
         return move_tick, self.chunkX, self.chunkY
