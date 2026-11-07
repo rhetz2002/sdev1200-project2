@@ -4,11 +4,24 @@ from maze import wall_block
 
 
 class screen_start(pygame.sprite.Sprite):
+    
     def __init__(self):
         
         super().__init__()
         
         self.image = pygame.image.load('sprites/screen_start.png').convert_alpha()
+        
+        self.rect = self.image.get_rect()
+
+        self.rect = self.image.get_rect(center=(700, 450))
+
+class screen_win(pygame.sprite.Sprite):
+    
+    def __init__(self):
+        
+        super().__init__()
+        
+        self.image = pygame.image.load('sprites/screen_WIN.png').convert_alpha()
         
         self.rect = self.image.get_rect()
 
@@ -58,18 +71,27 @@ def main_menu_render(sprites, screen):
 
 # maze, player_chunk
 
-def game_render(sprites, screen, x, y):
+def game_render(sprites, screen, x, y, past_chunkX, past_chunkY):
 
     screen.fill((255, 255, 255))
 
     sprites['player_sprite'].draw(screen)
 
-    sprites['wall_block1'].maze_draw(screen, x, y, sprites)
+    if past_chunkX != sprites['player1'].chunkX or past_chunkY != sprites['player1'].chunkY:
+            
+            sprites['wall_block1'].maze_draw(screen, sprites['player1'].chunkY, sprites['player1'].chunkX, sprites)
+
+            #past_chunkX = sprites['player1'].chunkX
+
+            #past_chunkY = sprites['player1'].chunkY
 
     pygame.display.flip()
 
+def win_render(sprites, screen):
 
-
-    #win or loose render
-
+    sprites['screen_win_sprite'].draw(screen) 
+        
+    pygame.display.flip()
     
+
+   

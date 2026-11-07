@@ -1,4 +1,6 @@
 import pygame
+from maze import maze_map
+from maze import wall_block
 
 class mage(pygame.sprite.Sprite):
 
@@ -52,7 +54,22 @@ class mele(pygame.sprite.Sprite):
 
         return bullet
 
-    def spawn(self, item):
+    def spawn(self, chunkX_curent, chunkY_curent, chunkX_past, chunkY_past):
+
+        #if chunkX_curent =! chunkX_past or if chunkY_curent =! chunkY_past:
+
+        #room = maze_map[chunkY_curent][chunkX_curent]
+
+        #for x, row in enumerate(room):              
+
+            #for y, tile in enumerate(row):  
+                #if tile == 2: 
+                
+                    #self.rect.topleft = (y * 100, x * 100)
+                    #screen.blit(self.image, self.rect)
+
+
+
 
         self.rect.topleft = (item, -110)
 

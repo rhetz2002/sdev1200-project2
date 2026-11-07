@@ -76,6 +76,23 @@ maze_map = [[[[1,1,1,1,1,1,1,1,1,1,1,1,1,1],
               [1,0,0,0,0,0,0,0,0,0,0,0,0,1],
               [1,1,1,1,1,1,1,1,1,1,1,1,1,1]]]]
 
+class win_floor (pygame.sprite.Sprite):
+
+    def __init__(self):
+
+        super().__init__()
+        
+        self.row = 0
+
+        self.collum = 0
+        
+        self.image = pygame.image.load('sprites/enviroment_floor_goal.png').convert_alpha()  
+        
+        self.image = pygame.transform.scale(self.image, (100, 100))
+
+        self.rect = self.image.get_rect()
+    
+
 class wall_block (pygame.sprite.Sprite):
 
     def __init__(self):
@@ -96,17 +113,43 @@ class wall_block (pygame.sprite.Sprite):
 
     def maze_draw (self, screen, playerX, playerY, sprites):
 
-        #self.rect.topleft = (self.row * 100, self.collum * 100)
+        self.kill
+        win_tile = win_floor()
+        win_floor.kill
+        sprites['mele1'].kill
+        sprites['mage1'].kill
 
-        room = maze_map[playerY][playerX]               # lock onto the first two layers
+        room = maze_map[playerY][playerX]               
 
-        for x, row in enumerate(room):               # the whole row, e.g. [1,0,0,0,...,1]
+        for x, row in enumerate(room):               
 
-            for y, tile in enumerate(row):  # j = index inside that row -> maze_map[a][b][i][j]
+            for y, tile in enumerate(row):  
                 
                 if tile == 1: 
                 
                     self.rect.topleft = (y * 100, x * 100)
                     screen.blit(self.image, self.rect)
+
+                elif tile == 9: 
+
+                    win_tile.rect.topleft = (y * 100, x * 100)
+                    screen.blit(win_tile.image, win_tile.rect)
+
+                elif tile == 2:
+
+                  sprites['mele1'].rect.topleft = (y *100, x * 100)
+                  screen.blit(sprites['mele1'].image, sprites['mele1'].rect)
+
+                elif tile == 3:
+
+                    sprites['mage1'].rect.topleft = (y *100, x * 100)
+                    screen.blit(sprites['mage1'].image, sprites['mage1'].rect)
+        
+        return
+
+
+                
+
+    
                     
 

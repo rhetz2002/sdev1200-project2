@@ -195,8 +195,17 @@ class player(pygame.sprite.Sprite):
 
             self.image = self.atk_right
 
+        if maze_map[self.chunkX][self.chunkY][self.collum][self.row] == 9:
+            win = True
+            game = False
+
+        else:
+
+            win = False
+            game = True
+
         self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
-        return move_tick, self.chunkX, self.chunkY
+        return move_tick, self.chunkX, self.chunkY, game, win
 
     #def damage(self):
 
@@ -206,4 +215,4 @@ class player(pygame.sprite.Sprite):
 
      #       gameover = True
 
-      #      return gameover
+      #      return gameover 
