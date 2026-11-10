@@ -109,10 +109,22 @@ class wall_block (pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect()
 
-        
+    def wall_location (self, playerX, playerY):
 
+        walls = set()
+
+        room = maze_map[playerY][playerX] 
+
+        for x, row in enumerate(room):               
+
+            for y, tile in enumerate(row):  
+                
+                if tile == 1: 
+
+                    walls.add((x,y))
+    
     def maze_draw (self, screen, playerX, playerY, sprites):
-
+        
         self.kill
         win_tile = win_floor()
         win_floor.kill
@@ -129,7 +141,7 @@ class wall_block (pygame.sprite.Sprite):
                 
                     self.rect.topleft = (y * 100, x * 100)
                     screen.blit(self.image, self.rect)
-
+                
                 elif tile == 9: 
 
                     win_tile.rect.topleft = (y * 100, x * 100)

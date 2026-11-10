@@ -1,6 +1,7 @@
 import pygame
 from maze import maze_map
 from maze import wall_block
+from algorithm import algorithm
 
 class mage(pygame.sprite.Sprite):
 
@@ -22,17 +23,11 @@ class mage(pygame.sprite.Sprite):
 
         return bullet
 
-    def spawn(self, item):
+    def update(self, wall, playerX, playerY,):
 
-        self.rect.topleft = (item, -110)
+        algorithm(wall, self.rect, (playerX, playerY))
 
-    def update(self):
-
-        self.rect.y += 1
-
-        if self.rect.y >= 900:
-
-            self.kill()
+        print(path)
 
 class mele(pygame.sprite.Sprite):
 

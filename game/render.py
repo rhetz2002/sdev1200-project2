@@ -81,9 +81,9 @@ def game_render(sprites, screen, x, y, past_chunkX, past_chunkY):
             
             sprites['wall_block1'].maze_draw(screen, sprites['player1'].chunkY, sprites['player1'].chunkX, sprites)
 
-            #past_chunkX = sprites['player1'].chunkX
+            past_chunkX = sprites['player1'].chunkX
 
-            #past_chunkY = sprites['player1'].chunkY
+            past_chunkY = sprites['player1'].chunkY
 
     pygame.display.flip()
 

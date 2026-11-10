@@ -20,6 +20,7 @@ from player import player
 from enemies import mele
 from enemies import mage
 
+
 #from maze import maze_map
 
 sprite_list_single = [screen_start, player, screen_win]
@@ -74,11 +75,13 @@ while running:
 
     while game is True:
         
-        move_tick, chunkX, chunkY, game, win = sprites['player1'].player_con(move_tick)
+        move_tick, chunkX, chunkY, game, win, wallpos = sprites['player1'].player_con(move_tick, sprites)
 
-        game_render(sprites, screen, chunkY, chunkX, past_chunkX, past_chunkY)       
+        game_render(sprites, screen, chunkY, chunkX, past_chunkX, past_chunkY)
 
-        #pathfindtest(sprites['player1'].row, sprites['player1'].collum)
+        #mele_move(wallpos, sprites['player1'].row, sprites['player1'].collum)
+
+        sprites['mage1'].update(wallpos, sprites['player1'].row, sprites['player1'].collum)       
 
         for event in pygame.event.get():
             

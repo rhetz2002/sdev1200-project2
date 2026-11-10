@@ -54,7 +54,8 @@ class player(pygame.sprite.Sprite):
 
         self.direction = 0
     
-    def player_con(self, move_tick):
+    def player_con(self, move_tick, sprites):
+        wallpos = (-999, -999) 
 
         pressed = pygame.key.get_pressed()
 
@@ -83,6 +84,8 @@ class player(pygame.sprite.Sprite):
                     self.collum = 8 
 
                     self.chunkX -= 1        
+
+                    wallpos = sprites['wall_block1'].wall_location(self.chunkX, self.chunkY)
 
                 else:
 
@@ -114,6 +117,8 @@ class player(pygame.sprite.Sprite):
 
                     self.chunkX += 1
 
+                    wallpos = sprites['wall_block1'].wall_location(self.chunkX, self.chunkY)
+
                 else:
 
                     move_tick += 1
@@ -143,6 +148,8 @@ class player(pygame.sprite.Sprite):
                     self.row = 13 
 
                     self.chunkY -= 1
+
+                    wallpos = sprites['wall_block1'].wall_location(self.chunkX, self.chunkY)
 
                 else:
 
@@ -175,6 +182,8 @@ class player(pygame.sprite.Sprite):
 
                     self.chunkY += 1
 
+                    wallpos = sprites['wall_block1'].wall_location(self.chunkX, self.chunkY)
+
                 else:
 
                     move_tick += 1
@@ -205,7 +214,7 @@ class player(pygame.sprite.Sprite):
             game = True
 
         self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
-        return move_tick, self.chunkX, self.chunkY, game, win
+        return move_tick, self.chunkX, self.chunkY, game, win, wallpos
 
     #def damage(self):
 
