@@ -75,13 +75,13 @@ while running:
 
     while game is True:
         
-        move_tick, chunkX, chunkY, game, win, wallpos = sprites['player1'].player_con(move_tick, sprites)
+        move_tick, chunkX, chunkY, game, win = sprites['player1'].player_con(move_tick, sprites)
 
         game_render(sprites, screen, chunkY, chunkX, past_chunkX, past_chunkY)
 
         #mele_move(wallpos, sprites['player1'].row, sprites['player1'].collum)
 
-        sprites['mage1'].update(wallpos, sprites['player1'].row, sprites['player1'].collum)       
+        sprites['mage1'].update((sprites['player1'].chunkX, sprites['player1'].chunkY), sprites['player1'].row, sprites['player1'].collum)       
 
         for event in pygame.event.get():
             

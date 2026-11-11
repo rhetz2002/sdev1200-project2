@@ -55,7 +55,6 @@ class player(pygame.sprite.Sprite):
         self.direction = 0
     
     def player_con(self, move_tick, sprites):
-        wallpos = (-999, -999) 
 
         pressed = pygame.key.get_pressed()
 
@@ -214,7 +213,7 @@ class player(pygame.sprite.Sprite):
             game = True
 
         self.rect.topleft = (self.offsetX + self.row * 100, self.offsetY + self.collum * 100)
-        return move_tick, self.chunkX, self.chunkY, game, win, wallpos
+        return move_tick, self.chunkX, self.chunkY, game, win
 
     #def damage(self):
 

@@ -5,7 +5,7 @@ from algorithm import algorithm
 
 class mage(pygame.sprite.Sprite):
 
-    def __init__(self):
+    def __init__(self, row, col):
 
         super().__init__()
         
@@ -15,17 +15,23 @@ class mage(pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect()
 
-    def atk(self):
+        self.row = row
+
+        self.col = col
+
+
+    def spawn(self):
         
-        bullet = orange_bullet()
+        sprites['mage1'].rect.topleft = (y *100, x * 100)
 
-        bullet.fire(self.rect.x, self.rect.y)
-
-        return bullet
+        screen.blit(sprites['mage1'].image, sprites['mage1'].rect)
+        
 
     def update(self, wall, playerX, playerY,):
 
-        algorithm(wall, self.rect, (playerX, playerY))
+        room = maze_map[wall[0]][wall[1]]
+
+        path = algorithm(room, (self.row, self.col), (playerX, playerY))
 
         print(path)
 

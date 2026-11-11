@@ -10,7 +10,7 @@ def huristics(start, goal):
 
 def algorithm(room, start, goal,):
 
-    rows. cols = len(room), len(room[0])
+    rows, cols = len(room), len(room[0])
 
     open_heap = [(huristics(start, goal), 0, start)]
 

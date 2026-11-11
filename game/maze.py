@@ -149,13 +149,13 @@ class wall_block (pygame.sprite.Sprite):
 
                 elif tile == 2:
 
-                  sprites['mele1'].rect.topleft = (y *100, x * 100)
+                  sprites['mele1'].spawn. = (y *100, x * 100)
                   screen.blit(sprites['mele1'].image, sprites['mele1'].rect)
 
                 elif tile == 3:
 
-                    sprites['mage1'].rect.topleft = (y *100, x * 100)
-                    screen.blit(sprites['mage1'].image, sprites['mage1'].rect)
+                    
+                    
         
         return
 
