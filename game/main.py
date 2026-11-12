@@ -81,7 +81,7 @@ while running:
 
         #mele_move(wallpos, sprites['player1'].row, sprites['player1'].collum)
 
-        sprites['mage1'].update((sprites['player1'].chunkX, sprites['player1'].chunkY), sprites['player1'].row, sprites['player1'].collum)       
+        #sprites['mage1'].update((sprites['player1'].chunkX, sprites['player1'].chunkY), sprites['player1'].row, sprites['player1'].collum)       
 
         for event in pygame.event.get():
             

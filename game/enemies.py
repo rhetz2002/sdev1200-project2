@@ -5,7 +5,7 @@ from algorithm import algorithm
 
 class mage(pygame.sprite.Sprite):
 
-    def __init__(self, row, col):
+    def __init__(self):
 
         super().__init__()
         
@@ -14,10 +14,6 @@ class mage(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (100, 100))
 
         self.rect = self.image.get_rect()
-
-        self.row = row
-
-        self.col = col
 
 
     def spawn(self):
