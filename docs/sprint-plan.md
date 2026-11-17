@@ -8,4 +8,4 @@
 | 4 | (if have time) enemies damage player when touch player| med |  |
 | 5 | (if have time) health for enemies and player, hud for player as well| med-high |  |
 
-when done the enemies will follow the player and it should run fine on lower end hardware
+when done the enemies will follow the player and it should run fine on lower end hardware from start to end point
