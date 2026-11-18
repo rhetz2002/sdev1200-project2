@@ -1,11 +1,11 @@
 # self code review 
 
 - 1. clarity:
-     I do feel like i could of been a bit more clear on what's going on in the algorithm as it feels a bit hard to read if you are looking at it from an outside perspective. I would like to add some comments to it if i had the time
-     leaving it: dosnt effect performacne and would be better suted for a later implimentation
+     I do feel like I could of been a bit more clear on what's going on in the algorithm as it feels a bit hard to read if you are looking at it from an outside perspective. I would like to add some comments to it if i had the time.
+     leaving it: doesn't effect performance and would be better suited for a later implementation considering the things on the plate right now.
      
-- 2. orginization:
-     one thing i really like is how well orginised i made this assignment but there are still some portions i think could of done better such as keeping the xy cords of the chunk selection and where i do the enemy rendering. i may or may not fix this depending on how much touble it causes 
+- 2. organization:
+     One thing I really like is how well orginised i made this assignment but there are still some portions i think could of done better such as keeping the xy cords of the chunk selection and where i do the enemy rendering. i may or may not fix this depending on how much touble it causes 
      will fix later
 
 - 3. data managment:
