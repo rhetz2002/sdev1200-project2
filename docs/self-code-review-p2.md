@@ -8,11 +8,8 @@
      one thing i really like is how well orginised i made this assignment but there are still some portions i think could of done better such as keeping the xy cords of the chunk selection and where i do the enemy rendering. i may or may not fix this depending on how much touble it causes 
      will fix later
 
-- 3. 
-
-- 
-one thing i really like about how i did this assignment is how i was able to keep everything in its place for the most part which is more than i can say for my first assignment of the semester. the one thing i dont like however is how i seem to have the x and y cords on the chunk selection swapped in most of the code 
-
-
+- 3. data managment:
+     this kind of goes hand in hand with the orginization but im not quite sure how i like the way im handelling the data mostly with keeping it orginized and how im passing it around from file to file. one of the biggest offenders in this is several function/method calls in the main file which if not now at some point had obseenly long tupples attatched to them,
+     leaving it for now: dosnt effect how the program runs better to leave as is for now
 
 yes i feel the algorithm is more than isolated enough for testing. i built it so it can run independently of the game itself for the most part. theoretically if your were to put it in a another game with a similar map system it should work out of the bo
